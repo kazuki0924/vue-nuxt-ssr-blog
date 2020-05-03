@@ -15,6 +15,8 @@ export default {
     PostList
   },
   asyncData(context, callback) {
+    // eslint-disable-next-line no-console
+    console.log(context)
     // eslint-disable-next-line nuxt/no-timing-in-fetch-data
     setTimeout(() => {
       callback(null, {
