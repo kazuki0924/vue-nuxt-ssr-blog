@@ -11,29 +11,44 @@ export default {
   components: {
     PostList
   },
-  asyncData(context, callback) {
-    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'First Post',
-            previewText: 'This is our first post!',
-            thumbnail:
-              'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
-          },
-          {
-            id: '2',
-            title: 'Second Post',
-            previewText: 'This is our second post!',
-            thumbnail:
-              'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
-          }
-        ]
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+      setTimeout(() => {
+        resolve({
+          loadedPosts: [
+            {
+              id: '1',
+              title: 'First Post',
+              previewText: 'This is our first post!',
+              thumbnail:
+                'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
+            },
+            {
+              id: '2',
+              title: 'Second Post',
+              previewText: 'This is our second post!',
+              thumbnail:
+                'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
+            }
+          ]
+        })
+      }, 1500)
+    })
+      .then((data) => {
+        return { data }
       })
-    }, 1500)
-  }
+      .catch((e) => {
+        context.error(new Error())
+      })
+    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+  },
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  created() {}
 }
 </script>
 
