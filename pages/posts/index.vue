@@ -33,22 +33,19 @@ export default {
             }
           ]
         })
-      }, 1500)
+      }, 1000)
+      // reject(new Error())
     })
       .then((data) => {
-        return { data }
+        return data
       })
       .catch((e) => {
-        context.error(new Error())
+        context.error(e)
       })
-    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
   },
-  // data() {
-  //   return {
-  //     loadedPosts: []
-  //   }
-  // },
-  created() {}
+  created() {
+    this.$store.dispatch('setPosts', this.loadedPosts)
+  }
 }
 </script>
 
