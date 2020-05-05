@@ -22,6 +22,7 @@ export default {
           ...postData,
           updatedDate: new Date()
         })
+        // eslint-disable-next-line no-console
         .then((result) => console.log(result).catch((e) => console.log(e)))
     }
   }

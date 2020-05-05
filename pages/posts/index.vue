@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PostList from "@/components/Posts/PostList";
+import PostList from '@/components/Posts/PostList'
 
 export default {
   components: {
@@ -16,9 +16,8 @@ export default {
       return this.$store.getters.loadedPosts
     }
   }
-};
+}
 </script>
-
 
 <style scoped>
 .posts-page {

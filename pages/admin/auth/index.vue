@@ -9,7 +9,9 @@
           type="button"
           btn-style="inverted"
           style="margin-left: 10px"
-          @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
+          @click="isLogin = !isLogin"
+          >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton
+        >
       </form>
     </div>
   </div>
@@ -49,4 +51,3 @@ export default {
   box-sizing: border-box;
 }
 </style>
-

@@ -5,10 +5,10 @@
     <AppControlInput v-model="editedPost.thumbnail"
       >Thumbnail Link</AppControlInput
     >
-    <AppControlInput control-type="textarea" v-model="editedPost.content"
+    <AppControlInput v-model="editedPost.content" control-type="textarea"
       >Content</AppControlInput
     >
-    <AppControlInput control-type="textarea" v-model="editedPost.previewText"
+    <AppControlInput v-model="editedPost.previewText" control-type="textarea"
       >Preview Text</AppControlInput
     >
     <AppButton type="submit">Save</AppButton>
@@ -32,6 +32,7 @@ export default {
     AppButton
   },
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     post: {
       type: Object,
       required: false
@@ -52,11 +53,9 @@ export default {
   },
   methods: {
     onSave() {
-      // Save the post
       this.$emit('submit', this.editedPost)
     },
     onCancel() {
-      // Navigate back
       this.$router.push('/admin')
     }
   }

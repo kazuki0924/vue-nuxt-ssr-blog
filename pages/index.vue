@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import PostList from "@/components/Posts/PostList";
+import PostList from '@/components/Posts/PostList'
 
 export default {
   components: {
@@ -19,14 +19,8 @@ export default {
       return this.$store.getters.loadedPosts
     }
   }
-  // data() {
-  //   return {
-  //     loadedPosts: []
-  //   };
-  // },
-};
+}
 </script>
-
 
 <style scoped>
 .intro {
@@ -34,7 +28,7 @@ export default {
   position: relative;
   padding: 30px;
   box-sizing: border-box;
-  background-image: url("~assets/images/main-page-background.jpg");
+  background-image: url('~assets/images/main-page-background.jpg');
   background-position: center;
   background-size: cover;
 }
