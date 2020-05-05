@@ -54,11 +54,23 @@ const createStore = () => {
             })
             .catch((e) => console.log(e))
         )
+      },
+      editPost(vuexContext, editedPost) {
+        axios
+          .put(
+            'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/posts/' +
+              editedPost.id +
+              '.json',
+            editedPost
+          )
+          .then((res) => {
+            vuexContext.commit('editPost', editedPost)
+          })
+          .catch((e) => console.log(e))
+      },
+      setPosts(vuexContext, posts) {
+        vuexContext.commit('setPosts', posts)
       }
-    },
-    editPost(vuexContext, editedPost) {},
-    setPosts(vuexContext, posts) {
-      vuexContext.commit('setPosts', posts)
     },
     getters: {
       loadedPosts(state) {
