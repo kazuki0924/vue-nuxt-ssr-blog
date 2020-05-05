@@ -38,6 +38,11 @@ export default {
         }
       })
       .catch((e) => context.error(e))
+  },
+  head() {
+    return {
+      title: 'A Blog Post'
+    }
   }
 }
 </script>
