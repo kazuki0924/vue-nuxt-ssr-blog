@@ -20,7 +20,7 @@ export default {
       .get(
         'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/posts/' +
           context.params.postId +
-          ',json'
+          '.json'
       )
       .then((res) => {
         return {
