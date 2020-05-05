@@ -22,23 +22,22 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  asyncData(context, callback) {
-    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: '1',
-          title: 'First Post (ID: ' + context.params.id + ')',
-          previewText: 'This is our first post!',
-          author: 'Bob',
-          updatedDate: new Date(),
-          content: 'Some dummy text',
-          thumbnail:
-            'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
+  asyncData(context) {
+    return axios
+      .get(
+        'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/posts/' +
+          context.params.id +
+          '.json'
+      )
+      .then((res) => {
+        return {
+          loadedPost: res.data
         }
       })
-    }, 1000)
+      .catch((e) => context.error(e))
   }
 }
 </script>
