@@ -35,7 +35,8 @@ export default {
         .put(
           'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/posts/' +
             this.$route.params.postId +
-            '.json'
+            '.json',
+          editedPost
         )
         .then((res) => this.$router.push('/admin'))
         .catch((e) => console.log(e))
