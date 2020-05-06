@@ -31,17 +31,17 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#3B8070' },
+  loading: { color: '#fa923f', height: '4px', duration: 5000 },
 
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/styles/main.css'],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/core-components.js'],
 
   /*
    ** Nuxt.js modules
@@ -56,5 +56,14 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
