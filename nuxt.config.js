@@ -66,10 +66,14 @@ module.exports = {
   env: {
     baseUrl:
       process.env.BASE_URL ||
-      'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/'
+      'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/',
+    fbAPIKey: 'AIzaSyBBZapx6_3Eu9kBYCoe1mWAkRbnCfk0vbM'
   },
   transition: {
     name: 'fade',
     mode: 'out-in'
+  },
+  router: {
+    middleware: 'log'
   }
 }
