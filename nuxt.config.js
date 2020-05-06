@@ -1,5 +1,6 @@
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const pkg = require('./package')
+const bodyParser = require('body-parser')
 
 require('dotenv').config()
 const { fbAPIKey } = process.env
@@ -76,7 +77,8 @@ module.exports = {
     name: 'fade',
     mode: 'out-in'
   },
-  router: {
-    middleware: 'log'
-  }
+  // router: {
+  //   middleware: 'log'
+  // }
+  serverMiddleware: [bodyParser.json('~/api')]
 }
