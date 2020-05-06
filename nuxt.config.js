@@ -1,6 +1,9 @@
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const pkg = require('./package')
 
+require('dotenv').config()
+const { fbAPIKey } = process.env
+
 // eslint-disable-next-line nuxt/no-cjs-in-config
 module.exports = {
   mode: 'universal',
@@ -46,7 +49,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
   axios: {
     baseURL:
       process.env.BASE_URL ||
@@ -67,7 +70,7 @@ module.exports = {
     baseUrl:
       process.env.BASE_URL ||
       'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/',
-    fbAPIKey: 'AIzaSyBBZapx6_3Eu9kBYCoe1mWAkRbnCfk0vbM'
+    fbAPIKey
   },
   transition: {
     name: 'fade',

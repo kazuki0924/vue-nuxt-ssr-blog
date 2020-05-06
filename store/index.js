@@ -69,6 +69,26 @@ const createStore = () => {
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts)
+      },
+      authenticateUser(state, authData) {
+        let authUrl =
+          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
+          process.env.fbAPIKey
+        if (!authData.isLogin) {
+          authUrl =
+            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
+            process.env.fbAPIKey
+        }
+        this.$axios
+          .$post(authUrl, {
+            email: authData.email,
+            password: authData.password,
+            returnSecureToken: true
+          })
+          .then((result) => {
+            console.log(result)
+          })
+          .catch((e) => console.log(e))
       }
     },
     getters: {
