@@ -7,32 +7,36 @@
 </template>
 
 <script>
-import AdminPostForm from '@/components/Admin/AdminPostForm'
+import AdminPostForm from "@/components/Admin/AdminPostForm";
 
 export default {
-  layout: 'admin',
+  layout: "admin",
   middleware: ['check-auth', 'auth'],
   components: {
     AdminPostForm
   },
   asyncData(context) {
     return context.app.$axios
-      .$get('/posts/' + context.params.postId + '.json')
-      .then((data) => {
+      .$get(
+        process.env.baseUrl + "/posts/" +
+          context.params.postId +
+          ".json"
+      )
+      .then(data => {
         return {
           loadedPost: { ...data, id: context.params.postId }
-        }
+        };
       })
-      .catch((e) => context.error())
+      .catch(e => context.error());
   },
   methods: {
     onSubmitted(editedPost) {
-      this.$store.dispatch('editPost', editedPost).then(() => {
-        this.$router.push('/admin')
-      })
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>

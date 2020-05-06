@@ -7,22 +7,23 @@
 </template>
 
 <script>
-import AdminPostForm from '@/components/Admin/AdminPostForm'
+import axios from "axios";
+import AdminPostForm from "@/components/Admin/AdminPostForm";
 
 export default {
-  layout: 'admin',
-  middleware: 'auth',
+  layout: "admin",
+  middleware: ['check-auth', 'auth'],
   components: {
     AdminPostForm
   },
   methods: {
     onSubmitted(postData) {
-      this.$store.dispatch('addPost', postData).then(() => {
-        this.$router.push('/admin')
-      })
+      this.$store.dispatch("addPost", postData).then(() => {
+        this.$router.push("/admin");
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
