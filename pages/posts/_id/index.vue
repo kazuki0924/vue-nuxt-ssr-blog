@@ -4,7 +4,7 @@
       <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
         <div class="post-detail">
-          Last updated on {{ loadedPost.updatedDate }}
+          Last updated on {{ loadedPost.updatedDate | date }}
         </div>
         <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
@@ -22,15 +22,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   asyncData(context) {
-    return axios
-      .get(process.env.baseUrl + '/posts/' + context.params.id + '.json')
-      .then((res) => {
+    return context.app.$axios
+      .$get('/posts/' + context.params.id + '.json')
+      .then((data) => {
         return {
-          loadedPost: res.data
+          loadedPost: data
         }
       })
       .catch((e) => context.error(e))

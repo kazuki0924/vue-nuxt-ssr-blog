@@ -41,12 +41,18 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/core-components.js'],
+  plugins: ['~plugins/core-components.js', '~plugins/date-filter.js'],
 
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    baseURL:
+      process.env.BASE_URL ||
+      'https://nuxtjs-blog-may-fifth-2020.firebaseio.com/',
+    credentials: false
+  },
 
   /*
    ** Build configuration
