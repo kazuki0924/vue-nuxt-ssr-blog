@@ -80,5 +80,5 @@ module.exports = {
   // router: {
   //   middleware: 'log'
   // }
-  serverMiddleware: [bodyParser.json('~/api')]
+  serverMiddleware: [bodyParser.json(), '~/api']
 }
