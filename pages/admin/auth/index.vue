@@ -24,6 +24,7 @@
 <script>
 export default {
   name: 'AdminAuthPage',
+  middleware: ['check-auth', 'auth'],
   layout: 'admin',
   data() {
     return {
